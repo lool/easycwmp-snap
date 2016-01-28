@@ -1,0 +1,31 @@
+name: easycwmp-stats
+version: 0.1
+vendor: Loïc Minier <loic.minier@ubuntu.com>
+summary: simple stats collection using easycwmp client
+description: Collects perioridically memory and CPU statistics and reports these over TR-069 using EasyCWMP client.
+icon: easycwmp.png
+parts:
+    easycwmp:
+        plugin: autotools
+        source: http://easycwmp.org/download/easycwmp-1.2.7.tar.gz
+        after:
+            - json-c
+            - microxml
+        configflags: 
+            - --enable-debug
+            - --enable-devel
+            - --enable-jsonc=1
+    json-c:
+        plugin: autotools
+        source: git://github.com/json-c/json-c.git
+    microxml:
+        plugin: autotools
+        source: git://github.com/lool/microxml.git
+        configflags: 
+            - --prefix=/usr
+            - --enable-threads
+            - --enable-shared
+            - --enable-static
+build-packages:
+    - libcurl4-openssl-dev
+    - libpthread-stubs0-dev
