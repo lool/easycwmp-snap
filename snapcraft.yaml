@@ -29,3 +29,4 @@ parts:
 build-packages:
     - libcurl4-gnutls-dev
     - libpthread-stubs0-dev
+    - pkg-config
