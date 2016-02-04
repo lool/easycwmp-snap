@@ -27,5 +27,5 @@ parts:
             - --enable-shared
             - --enable-static
 build-packages:
-    - libcurl4-openssl-dev
+    - libcurl4-gnutls-dev
     - libpthread-stubs0-dev
